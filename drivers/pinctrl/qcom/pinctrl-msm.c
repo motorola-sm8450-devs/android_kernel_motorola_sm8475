@@ -704,9 +704,9 @@ int tlmm_get_inout(unsigned gpio)
 	u32 val;
 
 	if (msm_pinctrl_data == NULL)
-		return -EINVAL;
+		return -ENODEV;
 	if (gpio >= msm_pinctrl_data->chip.ngpio)
-		return -EINVAL;
+		return -ENODEV;
 	if (!gpiochip_line_is_valid(&msm_pinctrl_data->chip, gpio))
 		return -EINVAL;
 
@@ -724,9 +724,9 @@ int tlmm_set_inout(unsigned gpio, unsigned value)
 	u32 val;
 
 	if (msm_pinctrl_data == NULL)
-		return -EINVAL;
+		return -ENODEV;
 	if (gpio >= msm_pinctrl_data->chip.ngpio)
-		return -EINVAL;
+		return -ENODEV;
 	if (!gpiochip_line_is_valid(&msm_pinctrl_data->chip, gpio))
 		return -EINVAL;
 
@@ -752,9 +752,9 @@ int tlmm_get_config(unsigned gpio, unsigned *cfg)
 	u32 ctl_reg;
 
 	if (msm_pinctrl_data == NULL)
-		return -EINVAL;
+		return -ENODEV;
 	if (gpio >= msm_pinctrl_data->chip.ngpio)
-		return -EINVAL;
+		return -ENODEV;
 	if (!gpiochip_line_is_valid(&msm_pinctrl_data->chip, gpio))
 		return -EINVAL;
 
@@ -780,9 +780,9 @@ int tlmm_set_config(unsigned config)
 
 	pr_debug("%s(), %d, gpio=%d\n", __func__, __LINE__, gpio);
 	if (msm_pinctrl_data == NULL)
-		return -EINVAL;
+		return -ENODEV;
 	if (gpio >= msm_pinctrl_data->chip.ngpio)
-		return -EINVAL;
+		return -ENODEV;
 	if (!gpiochip_line_is_valid(&msm_pinctrl_data->chip, gpio))
 		return -EINVAL;
 
