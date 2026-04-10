@@ -5716,8 +5716,6 @@ static int dwc3_msm_probe(struct platform_device *pdev)
 		mdwc->ss_redriver_node = NULL;
 	}
 
-	mdwc->force_gen1 = of_property_read_bool(node, "qcom,force-gen1");
-
 	if (of_property_read_bool(node, "usb-role-switch")) {
 		struct usb_role_switch_desc role_desc = {
 			.set = dwc3_msm_usb_role_switch_set_role,
